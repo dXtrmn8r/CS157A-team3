@@ -1,2 +1,2 @@
-# cs158afp
+# CS 157A Final Project
 Final project
