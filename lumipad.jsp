@@ -31,17 +31,15 @@
 
       Statement stmt = con.createStatement();
 
-      String sqlQuery =
-              """
-                      SELECT `Departure Airport`.`Airline Code` AS `Airline`,
-                             `Departure Airport`.`Flight Number`,
-                             Airports.`Display Name` AS `Destination`,
-                             `Departure Airport`.`Scheduled Departure`,
-                             `Departure Airport`.`Estimated Departure`,
-                             `Departure Airport`.Gate
-                      FROM `Departure Airport`, Airports
-                      WHERE `Departure Airport`.Destination = Airports.`Airport Code`
-                      ORDER BY `Scheduled Departure`;""";
+      String sqlQuery = "SELECT `Departure Airport`.`Airline Code` AS `Airline`,\n" +
+              "\t   `Departure Airport`.`Flight Number`,\n" +
+              "       Airports.`Display Name` AS `Destination`,\n" +
+              "       `Departure Airport`.`Scheduled Departure`,\n" +
+              "       `Departure Airport`.`Estimated Departure`,\n" +
+              "       `Departure Airport`.Gate\n" +
+              "FROM `Departure Airport`, Airports\n" +
+              "WHERE `Departure Airport`.Destination = Airports.`Airport Code`\n" +
+              "ORDER BY `Scheduled Departure`;";
       ResultSet rs = stmt.executeQuery(sqlQuery);
 
       while (rs.next()) {
