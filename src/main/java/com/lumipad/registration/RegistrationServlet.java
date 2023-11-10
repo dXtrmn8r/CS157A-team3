@@ -53,7 +53,7 @@ public class RegistrationServlet extends HttpServlet {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lumipad",dbUser, dbPassword);
-			PreparedStatement pst = con.prepareStatement("insert into passengers(Name, 'Date of Birth', Address, Phone, Billing_Info, Email) values(?,?,?,?,?,?)");
+			PreparedStatement pst = con.prepareStatement("insert into passengers(Name, `Date of Birth`, Address, Phone, Billing_Info, Email) values(?,?,?,?,?,?)");
 			pst.setString(1, uname);
 			pst.setString(2, ubirth);
 			pst.setString(3, uaddress);
