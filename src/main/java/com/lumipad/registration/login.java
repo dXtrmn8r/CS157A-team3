@@ -41,7 +41,7 @@ public class login extends HttpServlet {
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()) {//check if the query has a result, if there is
 				session.setAttribute("name", rs.getString("name"));//updates status at top of index.jsp with passenger name
-				dispatcher = request.getRequestDispatcher("index.jsp"); //page redirect
+				dispatcher = request.getRequestDispatcher("lumipad.jsp"); //page redirect
 			}else {//user isn't in db, or wrong password, etc.
 				request.setAttribute("status", "failed");
 				dispatcher = request.getRequestDispatcher("login.jsp");//Take them back to the same page

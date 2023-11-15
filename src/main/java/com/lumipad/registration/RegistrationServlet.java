@@ -26,6 +26,7 @@ public class RegistrationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Get data from jsp
 		String uname = request.getParameter("name");
 		String uemail = request.getParameter("email");
 		String upass = request.getParameter("pass");
@@ -52,6 +53,7 @@ public class RegistrationServlet extends HttpServlet {
 		String dbPassword = "password";
 		Connection con = null;
 		try {
+			//Insert entry into db
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lumipad",dbUser, dbPassword);
 			PreparedStatement pst = con.prepareStatement("insert into passengers(Name, `Date of Birth`, Address, Phone, Billing_Info, Email, Password) values(?,?,?,?,?,?,?)");
