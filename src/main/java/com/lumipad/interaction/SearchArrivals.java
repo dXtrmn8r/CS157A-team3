@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  * Servlet implementation class SearchDeparture
  */
 @WebServlet("/searchdeparture")
-public class SearchDeparture extends HttpServlet {
+public class SearchArrivals extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,10 +34,10 @@ public class SearchDeparture extends HttpServlet {
             PreparedStatement stmt;
             if (searchQuery == null || searchQuery.isEmpty()) {
                 // Default query that selects all records
-                stmt = con.prepareStatement("SELECT `Departure Airport`.`Airline Code` AS `Airline`, `Departure Airport`.`Flight Number`, Airports.`Display Name` AS `Destination`, `Departure Airport`.`Scheduled Departure`, `Departure Airport`.`Estimated Departure`, `Departure Airport`.Gate FROM `Departure Airport`, Airports WHERE `Departure Airport`.Destination = Airports.`Airport Code` ORDER BY `Scheduled Departure`;");
+                stmt = con.prepareStatement("SELECT `Arrival Airport`.`Airline Code` AS `Airline`, `Arrival Airport`.`Flight Number`, Airports.`Display Name` AS Origin, `Arrival Airport`.`Scheduled Arrival`, `Arrival Airport`.`Estimated Arrival` FROM `Arrival Airport`, Airports WHERE `Arrival Airport`.Origin = Airports.`Airport Code` ORDER BY `Scheduled Arrival`;\r\n");
             } else {
                 // Search query
-                stmt = con.prepareStatement("SELECT `Departure Airport`.`Airline Code` AS `Airline`, `Departure Airport`.`Flight Number`, Airports.`Display Name` AS `Destination`, `Departure Airport`.`Scheduled Departure`, `Departure Airport`.`Estimated Departure`, `Departure Airport`.Gate FROM `Departure Airport`, Airports WHERE `Departure Airport`.Destination = Airports.`Airport Code` AND `Departure Airport`.`Flight Number` LIKE ? ORDER BY `Scheduled Departure`;");
+                stmt = con.prepareStatement("SELECT `Arrival Airport`.`Airline Code` AS `Airline`, `Arrival Airport`.`Flight Number`, Airports.`Display Name` AS Origin, `Arrival Airport`.`Scheduled Arrival`, `Arrival Airport`.`Estimated Arrival` FROM `Arrival Airport`, Airports WHERE `Arrival Airport`.Origin = Airports.`Airport Code`  LIKE ? ORDER BY `Scheduled Arrival`;");
                 stmt.setString(1, "%" + searchQuery + "%");
             }
             ResultSet rs = stmt.executeQuery();

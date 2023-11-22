@@ -1,88 +1,70 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.sql.*" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+	import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Project Lumipad</title>
-  <style>
-    table, th, td {
-      border: 1px solid;
-    }
-    .logout {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 10px;
-      background-color: #f8f9fa;
-      border: none;
-      cursor: pointer;
-    }
-    .search-bar {
-      margin-bottom: 20px;
-    }
-  </style>
+<title>Project Lumipad</title>
+<style>
+table, th, td {
+	border: 1px solid;
+}
+
+.logout {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px;
+	background-color: #f8f9fa;
+	border: none;
+	cursor: pointer;
+}
+
+.search-bar {
+	margin-bottom: 20px;
+}
+</style>
 </head>
 <body>
-<a class="logout" href='logout'>Logout</a>
-<h2>Search</h2>
-Search by Flight number or by both airline and the arrival and departure airports
-<form action="SearchDeparture" method="get">
-    <input type="text" name="search" onkeyup='SearchDeparture' placeholder="Search for departures..">
-    <input type="submit" value="Search">
-</form>
-<h1>Departures</h1>
-<table>
-  <tr>
-    <th colspan="2">Flight Number</th>
-    <th>Destination</th>
-    <th>Scheduled Time</th>
-    <th>Estimated Time</th>
-    <th>Gate</th>
-  </tr>
-   <%
-    String db = "lumipad";
-    String user; // assumes database name is the same as username
-    user = "root";
-    String password = "password";
-    try {
-      Connection con;
-      Class.forName("com.mysql.cj.jdbc.Driver");
-      con = DriverManager.getConnection(String.format("jdbc:mysql://localhost:3306/%s?autoReconnect=true&useSSL=false", db),user, password);
+	<a class="logout" href='logout'>Logout</a>
+	<h2>Search</h2>
+	Search by Flight number or by both airline and the arrival and
+	departure airports
+	<form action="searchdeparture" method="get">
+		<input type="text" name="search" onkeyup='searchdeparture'
+			placeholder="Search for departures.."> <input type="submit"
+			value="Search">
+	</form>
+	<h1>Departures</h1>
+	<table>
+		<tr>
+			<th colspan="2">Flight Number</th>
+			<th>Destination</th>
+			<th>Scheduled Time</th>
+			<th>Estimated Time</th>
+			<th>Gate</th>
+		</tr>
+		<%
+		ResultSet rs = (ResultSet) request.getAttribute("results");
+		if (rs != null) {
+			while (rs.next()) {
+				out.println("<tr>");
+				out.println("<td>" + rs.getString(1) + "</td>");
+				out.println("<td>" + rs.getInt(2) + "</td>");
+				out.println("<td>" + rs.getString(3) + "</td>");
+				out.println("<td>" + rs.getTime(4) + "</td>");
+				out.println("<td>" + rs.getTime(5) + "</td>");
+				out.println("<td>" + rs.getString(6) + "</td>");
+				out.println("</tr>");
+			}
+		} else {
+			out.println("<tr><td colspan='6'>No results found</td></tr>");
+		}
+		%>
 
-      Statement stmt = con.createStatement();
-
-      String sqlQuery = "SELECT `Departure Airport`.`Airline Code` AS `Airline`,\n" +
-              "       `Departure Airport`.`Flight Number`,\n" +
-              "       Airports.`Display Name` AS `Destination`,\n" +
-              "       `Departure Airport`.`Scheduled Departure`,\n" +
-              "       `Departure Airport`.`Estimated Departure`,\n" +
-              "       `Departure Airport`.Gate\n" +
-              "FROM `Departure Airport`, Airports\n" +
-              "WHERE `Departure Airport`.Destination = Airports.`Airport Code`\n" +
-              "ORDER BY `Scheduled Departure`;";
-      ResultSet rs = stmt.executeQuery(sqlQuery);
-
-      while (rs.next()) {
-        out.println("<tr>");
-        out.println("<td>" + rs.getString(1) + "</td>");
-        out.println("<td>" + rs.getInt(2) + "</td>");
-        out.println("<td>" + rs.getString(3) + "</td>");
-        out.println("<td>" + rs.getTime(4) + "</td>");
-        out.println("<td>" + rs.getTime(5) + "</td>");
-        out.println("<td>" + rs.getString(6) + "</td>");
-        out.println("</tr>");
-      }
-      rs.close();
-      stmt.close();
-      con.close();
-    } catch(SQLException | ClassNotFoundException e) {
-      out.println("SQLException caught: " + e.getMessage());
-      // out.println(Arrays.toString(e.getStackTrace()));
-    }
-  %>
-</table>
+	</table>
 
 
-<h1>Arrivals</h1>
+	<%-- <h1>Arrivals</h1>
 <table>
   <tr>
     <th colspan="2">Flight Number</th>
@@ -125,7 +107,7 @@ Search by Flight number or by both airline and the arrival and departure airport
       // out.println(Arrays.toString(e.getStackTrace()));
     }
   %>
-</table>
+</table> --%>
 
 </body>
 </html>
