@@ -7,9 +7,28 @@
     table, th, td {
       border: 1px solid;
     }
+    .logout {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 10px;
+      background-color: #f8f9fa;
+      border: none;
+      cursor: pointer;
+    }
+    .search-bar {
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
+<a class="logout" href='logout'>Logout</a>
+<h2>Search</h2>
+Search by Flight number or by both airline and the arrival and departure airports
+<form action="SearchDeparture" method="get">
+    <input type="text" name="search" onkeyup='SearchDeparture' placeholder="Search for departures..">
+    <input type="submit" value="Search">
+</form>
 <h1>Departures</h1>
 <table>
   <tr>
@@ -19,7 +38,7 @@
     <th>Estimated Time</th>
     <th>Gate</th>
   </tr>
-  <%
+   <%
     String db = "lumipad";
     String user; // assumes database name is the same as username
     user = "root";
