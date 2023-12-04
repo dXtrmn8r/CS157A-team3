@@ -1,0 +1,4 @@
+# Ignore the build and .settings folders
+build/
+.settings/
+.classpath
