@@ -62,13 +62,13 @@ public class AddFlightServlet extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lumipad",dbUser, dbPassword);
             PreparedStatement pstFlight = con.prepareStatement("INSERT INTO Flights(`Airline Code`, `Flight Number`, `Aircraft Code`, Date) Values(?,?,?,?)");
-            pstFlight.setString(1, airlinecode);
+            pstFlight.setString(1, airlineCode);
             pstFlight.setString(2, flightno);
             pstFlight.setString(3, aircraftcode);
             pstFlight.setString(4, date);
 
             PreparedStatement pstDeparture = con.prepareStatement("INSERT INTO `Departure Airport`(`Airline Code`, `Flight Number`, Destination, Date, `Scheduled Departure`, `Estimated Departure`, Gate) Values(?,?,?,?,?,?,?)");
-            pstDeparture.setString(1, airlinecode);
+            pstDeparture.setString(1, airlineCode);
             pstDeparture.setString(2, flightno);
             pstDeparture.setString(3, origin);
             pstDeparture.setString(4, date);
@@ -77,7 +77,7 @@ public class AddFlightServlet extends HttpServlet {
             pstDeparture.setString(7, depgate);
 
             PreparedStatement pstArrival = con.prepareStatement("INSERT INTO `Departure Airport`(`Airline Code`, `Flight Number`, Destination, Date, `Scheduled Departure`, `Estimated Departure`, Gate, `Baggage Claim`) Values(?,?,?,?,?,?,?,?)");
-            pstArrival.setString(1, airlinecode);
+            pstArrival.setString(1, airlineCode);
             pstArrival.setString(2, flightno);
             pstArrival.setString(3, destination);
             pstArrival.setString(4, date);
