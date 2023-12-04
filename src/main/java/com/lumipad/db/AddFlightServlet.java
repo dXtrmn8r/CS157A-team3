@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class RegistrationServlet
  */
-@WebServlet("/register")
+@WebServlet("/Addflight")
 public class AddFlightServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

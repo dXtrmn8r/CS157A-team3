@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class SearchDeparture
  */
-@WebServlet("/searchdeparture")
+@WebServlet("/SearchArrivals")
 public class SearchArrivals extends HttpServlet {
 
 	/**
