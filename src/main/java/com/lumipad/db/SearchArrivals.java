@@ -1,4 +1,4 @@
-package com.lumipad.interaction;
+package com.lumipad.db;
 
 import java.io.IOException;
 import java.sql.Connection;

@@ -28,7 +28,7 @@
 				<div class="add-form">
 					<h2 class="form-title">Add a Flight</h2>
 
-					<form method="post" action="add-flight" class="register-form"
+					<form method="post" action="addflight" class="register-form"
 						id="register-form">
 						<div class="form-group">
 							<label for="airlinecode">
