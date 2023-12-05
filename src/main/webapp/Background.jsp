@@ -144,7 +144,7 @@ body {
   <a href="booking.jsp">Booking</a>
   <a href="Cancellation.jsp">Cancel Ticket</a>
   <a href="TicketHistory">View Ticket History</a>
-  
+  <a href="UpcomingFlights">Upcoming Flights</a>
   <a href="login.jsp" class="right">LogOut</a>
 </div>
 
