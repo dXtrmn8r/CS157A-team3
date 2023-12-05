@@ -249,7 +249,7 @@ CREATE TABLE `flights` (
   `Aircraft Code` varchar(3) DEFAULT NULL,
   `Date` date DEFAULT NULL,
   `Status` varchar(15) DEFAULT NULL,
-  `Destination` varchar(45) DEFAULT NULL,
+  `Departure` varchar(45) DEFAULT NULL,
   `Arrival` varchar(45) DEFAULT NULL,
   `Depart_time` varchar(45) DEFAULT NULL,
   `Arrival_time` varchar(45) DEFAULT NULL,
@@ -258,7 +258,7 @@ CREATE TABLE `flights` (
   `first_class_seat_aval` int DEFAULT NULL,
   `buss_class_seat_booked` int DEFAULT NULL,
   `buss_class_seat_aval` int DEFAULT NULL,
-  `eco_class_booked` int DEFAULT NULL,
+  `eco_class_seat_booked` int DEFAULT NULL,
   `eco_class_seat_aval` int DEFAULT NULL,
   `first_class_price` int DEFAULT NULL,
   `buss_class_price` int DEFAULT NULL,
@@ -276,7 +276,7 @@ CREATE TABLE `flights` (
 
 LOCK TABLES `flights` WRITE;
 /*!40000 ALTER TABLE `flights` DISABLE KEYS */;
-INSERT INTO `flights` VALUES ('AA',1,'738','2023-10-09','Arrived','JFK','LAX','00:18:00','02:18:00','2',5,5,5,5,5,5,2,10,50),('AA',3,'319','2023-10-09','Canceled','JFK','LAX','00:18:00','04:18:00','4',5,5,5,5,5,5,2,10,50),('B6',15,'321','2023-10-09','Boarding','JFK','SFO','00:18:00','06:18:00','6',5,6,5,5,5,5,2,10,50),('B6',416,'321','2023-10-09','Delayed','SFO','JFK','00:18:00','08:18:00','8',5,5,5,5,5,5,2,10,50),('DL',661,'321','2023-10-09','Canceled','ATL','BOS','00:18:00','10:18:00','10',5,5,5,5,5,5,2,10,50),('DL',947,'321','2023-10-09','Arrived','ATL','SAN','00:18:00','12:18:00','12',5,5,5,5,5,5,2,10,50),('UA',574,'39M','2023-10-09','Boarding','LAS','SFO','00:18:00','14:18:00','14',5,5,5,5,5,5,2,10,50),('UA',1435,'39M','2023-10-09','Boarding','SFO','IAH','00:18:00','16:18:00','16',5,5,5,5,5,5,2,10,50),('WN',673,'738','2023-10-09','Arrived','LAS','RNO','00:18:00','18:18:00','18',5,5,5,5,5,5,2,10,50),('WN',1231,'39M','2023-10-09','Canceled','HNL','OGG','00:18:00','20:18:00','20',5,5,5,5,5,5,2,10,50);
+INSERT INTO `flights` VALUES ('AA',1,'738','2023-10-09','Arrived','JFK','LAX','00:18:00','02:18:00','2',6,4,7,3,6,4,2,10,50),('AA',3,'319','2023-10-09','Canceled','JFK','LAX','00:18:00','04:18:00','4',5,5,5,5,5,5,2,10,50),('B6',15,'321','2023-10-09','Boarding','JFK','SFO','00:18:00','06:18:00','6',5,6,5,5,5,5,2,10,50),('B6',416,'321','2023-10-09','Delayed','SFO','JFK','00:18:00','08:18:00','8',5,5,5,5,5,5,2,10,50),('DL',661,'321','2023-10-09','Canceled','ATL','BOS','00:18:00','10:18:00','10',5,5,5,5,5,5,2,10,50),('DL',947,'321','2023-10-09','Arrived','ATL','SAN','00:18:00','12:18:00','12',5,5,5,5,5,5,2,10,50),('UA',574,'39M','2023-10-09','Boarding','LAS','SFO','00:18:00','14:18:00','14',5,5,5,5,5,5,2,10,50),('UA',1435,'39M','2023-10-09','Boarding','SFO','IAH','00:18:00','16:18:00','16',5,5,5,5,5,5,2,10,50),('WN',673,'738','2023-10-09','Arrived','LAS','RNO','00:18:00','18:18:00','18',5,5,5,5,5,5,2,10,50),('WN',1231,'39M','2023-10-09','Canceled','HNL','OGG','00:18:00','20:18:00','20',5,5,5,5,5,5,2,10,50);
 /*!40000 ALTER TABLE `flights` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,6 +359,7 @@ CREATE TABLE `payment_details` (
 
 LOCK TABLES `payment_details` WRITE;
 /*!40000 ALTER TABLE `payment_details` DISABLE KEYS */;
+INSERT INTO `payment_details` VALUES (21938,'XXrBuYY28500UbR','NULL',NULL,10),(53705,'XXcJyYY28663YjC','NULL',NULL,50),(71556,'XXaTaYY49634AtA','NULL',NULL,2);
 /*!40000 ALTER TABLE `payment_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -403,8 +404,8 @@ CREATE TABLE `tickets` (
   `userid` varchar(45) DEFAULT NULL,
   `Airline Code` varchar(45) DEFAULT NULL,
   `Flight Number` varchar(45) DEFAULT NULL,
-  `SeatNo` varchar(3) DEFAULT NULL,
-  `Date` varchar(45) DEFAULT NULL,
+  `no_of_seats` varchar(3) DEFAULT NULL,
+  `date_of_flight` varchar(45) DEFAULT NULL,
   `Ticket_type` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`PNR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -416,7 +417,7 @@ CREATE TABLE `tickets` (
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
-INSERT INTO `tickets` VALUES ('19EVIU','2','AA','1','21A','2023-10-09','Bussiness'),('8T6QTK','2','AA','3','43K','2023-10-09','First Class'),('DU5I7K','3','B6','15','56C','2023-10-09','Bussiness'),('F43OFC','4','B6','416','1B','2023-10-09','Economic'),('HOOS6V','5','DL','661','1A','2023-10-09','Economic'),('IM8A41','6','DL','947','12H','2023-10-09','Bussiness'),('IMFHZF','7','UA','574','45F','2023-10-09','First Class'),('IVKTRP','8','UA','1435','25B','2023-10-09','Bussiness'),('MI6WI9','9','WN','673','9C','2023-10-09','Economic'),('MW7R68','10','WN','1231','16E','2023-10-09','Bussiness');
+INSERT INTO `tickets` VALUES ('013268','2','AA','1','1','2023-12-04','Business Class'),('021938','2','AA','1','1','2023-12-04','Business Class'),('053705','2','AA','1','1','2023-12-04','Economic Class'),('059339','2','AA','1','1','2023-12-04','Business Class'),('064579','2','AA','1','1','2023-12-04','Economic Class'),('071556','2','AA','1','1','2023-12-04','First Class'),('19EVIU','2','AA','1','2','2023-10-09','Bussiness'),('8T6QTK','2','AA','3','4','2023-10-09','First Class'),('DU5I7K','3','B6','15','1','2023-10-09','Bussiness'),('F43OFC','4','B6','416','6','2023-10-09','Economic'),('HOOS6V','5','DL','661','3','2023-10-09','Economic'),('IM8A41','6','DL','947','5','2023-10-09','Bussiness'),('IMFHZF','7','UA','574','6','2023-10-09','First Class'),('IVKTRP','8','UA','1435','1','2023-10-09','Bussiness'),('MI6WI9','9','WN','673','1','2023-10-09','Economic'),('MW7R68','10','WN','1231','1','2023-10-09','Bussiness');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -443,10 +444,6 @@ LOCK TABLES `us states` WRITE;
 INSERT INTO `us states` VALUES ('AK','Alaska'),('AL','Alabama'),('AR','Arkansas'),('AZ','Arizona'),('CA','California'),('CO','Colorado'),('CT','Connecticut'),('DC','District of Columbia'),('DE','Delaware'),('FL','Florida'),('GA','Georgia'),('HI','Hawaii'),('IA','Iowa'),('ID','Idaho'),('IL','Illinois'),('IN','Indiana'),('KS','Kansas'),('KY','Kentucky'),('LA','Louisiana'),('MA','Massachusetts'),('MD','Maryland'),('ME','Maine'),('MI','Michigan'),('MN','Minnesota'),('MO','Missouri'),('MS','Mississippi'),('MT','Montana'),('NC','North Carolina'),('ND','North Dakota'),('NE','Nebraska'),('NH','New Hampshire'),('NJ','New Jersey'),('NM','New Mexico'),('NV','Nevada'),('NY','New York'),('OH','Ohio'),('OK','Oklahoma'),('OR','Oregon'),('PA','Pennsylvania'),('RI','Rhode Island'),('SC','South Carolina'),('SD','South Dakota'),('TN','Tennessee'),('TX','Texas'),('UT','Utah'),('VA','Virginia'),('VT','Vermont'),('WA','Washington'),('WI','Wisconsin'),('WV','West Virginia'),('WY','Wyoming');
 /*!40000 ALTER TABLE `us states` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'lumipad'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -457,4 +454,6 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-04 14:20:17
+-- Dump completed on 2023-12-04 20:24:02
+
+
