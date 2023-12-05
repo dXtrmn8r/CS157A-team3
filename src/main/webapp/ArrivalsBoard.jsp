@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
 	import="java.sql.*"%>
 <%@ page import="java.util.List"%>
-<jsp:include page="index.jsp" />
+<jsp:include page="Background.jsp" />
 
 <!DOCTYPE html>
 <html>
@@ -28,7 +28,6 @@ table, th, td {
 </style>
 </head>
 <body>
-	<a href="FlightDetailServlet">View My Flight Details</a>
 	<br> Search by Flight number
 	<form action="SearchArrival" method="get">
     <!-- Search by Flight number -->
