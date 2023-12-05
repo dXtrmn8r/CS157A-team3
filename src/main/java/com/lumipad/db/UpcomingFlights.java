@@ -39,7 +39,12 @@ public class UpcomingFlights extends HttpServlet {
                 String userID = rs.getString("userID");
 
                 // Get ticket history
-                sqlQuery =  "SELECT * FROM lumipad.tickets WHERE date_of_flight >= CURDATE() AND userid = ?;";
+                sqlQuery =  "SELECT tickets.*, `Departure airport`.`scheduled departure`, `Departure airport`.`Gate` " +
+                        "FROM tickets " +
+                        "JOIN `Departure airport` ON tickets.`Airline Code` = `Departure airport`.`Airline Code` " +
+                        "AND tickets.`Flight Number` = `Departure airport`.`Flight Number` " +
+                        "AND tickets.`date_of_flight` = `Departure airport`.`Date` " +
+                        "WHERE tickets.`date_of_flight` > CURDATE() AND tickets.userid = ?;";
                 stmt = con.prepareStatement(sqlQuery);
                 stmt.setString(1, userID);
                 ResultSet ticketResults = stmt.executeQuery();

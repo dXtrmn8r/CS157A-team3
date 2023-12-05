@@ -18,7 +18,8 @@
             <th>No. of Seats</th>
             <th>Date</th>
             <th>Ticket Type</th>
-            <!-- Add more columns as needed -->
+            <th>Departure Time</th>
+            <th>Gate</th>
         </tr>
         <%
         ResultSet rs = (ResultSet) request.getAttribute("upcoming_results");
@@ -31,6 +32,8 @@
             <td><%=rs.getString(5)%></td> <!-- No_of_seats -->
             <td><%=rs.getString(6)%></td> <!-- Date -->
             <td><%=rs.getString(7)%></td> <!--Ticket Type-->
+            <td><%=rs.getString(8)%></td>
+            <td><%=rs.getString(9)%></td>
         </tr>
         <%
             }
