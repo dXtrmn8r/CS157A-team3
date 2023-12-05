@@ -143,7 +143,7 @@ body {
   <a href="ArrivalsBoard.jsp">Home</a>
   <a href="booking.jsp">Booking</a>
   <a href="Cancellation.jsp">Cancel Ticket</a>
-  <a href="#">View Ticket History</a>
+  <a href="TicketHistory">View Ticket History</a>
   
   <a href="login.jsp" class="right">LogOut</a>
 </div>
