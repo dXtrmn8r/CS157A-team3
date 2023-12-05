@@ -103,33 +103,33 @@
        
         <div class="container-xxl py-5">
             <div class="main">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+           
                     <h6 class="section-title text-center text-primary text-uppercase">Tickets Cancellation</h6>
-                    <h1 class="mb-5">Cancel A <span class="text-primary text-uppercase">Plane Ticket</span></h1>
+                    <h1 class="mb-5" style="color: Black;">Cancel A Plane Ticket</h1>
                 </div>
-                    <div class="row justify-content-center">
-                        <div class="col-lg-10 p-1">
-                            <div class="text-center p-1">
-                                <h3>Ticket with PNR ID "<%  String PNR=(String)session.getAttribute("PNR");  
+                    <div>
+                        <div>
+                            <div>
+                                <h3 style="color: Black;">Ticket with PNR ID "<%  String PNR=(String)session.getAttribute("PNR");  
                                         out.print(PNR);  
                                     %>" was cancelled successfully</h3>
                             </div>
                         </div>
                     </div>
-                <div class="row g-5">                    
-                    <div class="col-lg-6">
-                        <div class="wow fadeInUp" data-wow-delay="0.2s">
+                <div>                    
+                    <div>
+                        <div >
                             
                             <form  method="post" action="Cancellation">
-                                <div class="row g-3">
-                                    <div class="col-md-8">
-                                        <div class="form-floating">
+                                <div>
+                                    <div>
+                                        <div>
                                             <input type="text" class="form-control" id="PNR" placeholder="Provide Your PNR Number" name="PNR">
                                             <label for="PNR">Provide Your PNR Number</label>
                                         </div>
                                     </div>
-                                    <div class="col-4">
-                                        <div class="form-floating">
+                                    <div>
+                                        <div>
                                             <button class="btn btn-primary w-100 py-3" type="submit">Cancel Now</button>
                                         </div>
                                     </div>
@@ -149,7 +149,7 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
       
-      </div>
+      
     </header>
 
     <!-- Copyright Section-->

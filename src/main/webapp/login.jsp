@@ -25,7 +25,7 @@
 				<div class="signin-content">
 					<div class="signin-image">
 						<figure>
-							<img src="images/lumipad-logo.png" alt="sing up image">
+							<img src="images/lumipad-logo.png" alt="sign up image">
 						</figure>
 						<a href="registration.jsp" class="signup-image-link">Create an
 							account</a>

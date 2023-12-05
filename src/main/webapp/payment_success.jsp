@@ -100,18 +100,18 @@
     <!-- Masthead-->
     <header class="masthead bg-primary text-white text-center">
       <div class="container d-flex align-items-center flex-column">
-      		<div class="container-xxl bg-white p-0">
-        <div class="main">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      		<div>
+        <div>
+            <div>
                 <h5 class="section-title text-center text-primary text-uppercase">Payment Success</h5>
-                <h1 class="mb-5">Payment <span class="text-primary text-uppercase">Success</span></h1>
+                <h1 class="mb-5">Payment Success!</h1>
              <!--  	 <h1 class="mb-5"><a href="GeneratePDF"> ->Click Here To Download Your Invoice<- </a></h1> 
               	<h6 class="section-title text-center text-primary text-uppercase">We are requesting you to download your Invoice as a Ticket Proof</h6> -->
             </div>
         </div>
            
         
-        <!-- Footer Gappping -->
+        <!-- Footer Gappping 
         <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="row justify-content-center">
                 <div class="col-lg-10 p-1">
@@ -121,7 +121,7 @@
                 </div>
             </div>
         </div>
-        <!-- Footer Gapping -->
+        Footer Gapping -->
 
         
 

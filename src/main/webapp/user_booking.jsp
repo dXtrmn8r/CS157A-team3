@@ -133,20 +133,20 @@
     <!-- Masthead-->
     <header class="masthead bg-primary text-white text-center">
       <div class="container d-flex align-items-center flex-column">
-      		<div class="container-xxl bg-white p-0">
+      		<div>
         <!-- Header Start -->
-        <div class="container-xxl bg-white p-0">
+        <div>
        
         <!-- Booking Start -->
-        <div class="row">
-            <div class="main">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="mb-5">Book A <span class="text-primary text-uppercase">Plane Ticket</span></h1>
+        <div>
+            <div>
+                <div>
+                    <h1 class="mb-5">Book A Plane Ticket</h1>
                 </div>               
-                <div class="row g-5">
+                <div>
                     
-                    <div class="col-lg-6">
-                        <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <div>
+                        <div>
                             <h3><small>Your PNR No Is> <%  String pnrno=(String)session.getAttribute("pnrno");  
                                         out.print(pnrno);
                                         session.setAttribute("PNR",pnrno);
@@ -164,15 +164,15 @@
                             </small></h3>
                             
                             <form method="post" action="User_booking">
-                                <div class="row g-3">
-                                    <div class="col-md-12">
-                                        <div class="form-floating">
+                                <div>
+                                    <div>
+                                        <div>
                                             <input type="text" class="form-control" id="name" placeholder="Your Address" name="address">
                                             <label for="address">Your Address</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
+                                    <div>
+                                        <div>
                                             <select class="form-select" id="select3" placeholder="Select Payment Type" name="payment_type">
                                               <option value="UPI PAY">UPI PAY</option>
                                               <option value="Debit Card PAY">Debit Card PAY</option>
@@ -182,15 +182,15 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="col-md-12">
-                                        <div class="form-floating">
+                                    <div>
+                                        <div>
                                             <input type="text" class="form-control" id="name" placeholder="Enter UPI ID/ Credit Or Debit Card Number" name="upino">
                                             <label for="address">Enter UPI ID/ Credit Or Debit Card Number</label>
                                         </div>
                                     </div>
                                     
-                                    <div class="col-12">
-                                        <div class="form-floating">
+                                    <div>
+                                        <div>
                                             <button class="btn btn-primary w-100 py-3" onclick="return payment_validate();" type="submit">Pay Now</button>
                                         </div>
                                     </div>
@@ -209,7 +209,7 @@
      
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+       <!--  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a> -->
     </div>
       		
       </div>

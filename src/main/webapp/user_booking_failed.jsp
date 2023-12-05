@@ -136,8 +136,8 @@
         
         -->
 
-        <div class="container-xxl py-5">
-            <div class="main">
+        <div>
+            <div>
                 <h1>Flight Details</h1>
 				
 				<table class="center">
@@ -186,22 +186,22 @@
                 <!-- Booking Start -->				
 				<h1 class="mb-5">Book A <span class="text-primary text-uppercase">Plane Ticket</span></h1>      
                <form name="m_f" method="post" action="User_booking_validation">
-                   <div class="row g-3">
-                   		<div class="form-floating">
+                   <div>
+                   		<div>
                            		<label for="name">Your UserID</label>                          
                                <input type="text" class="form-control" id="userid" placeholder="Your User Name" name="userid">
                         </div>
                        
-                           <div class="form-floating">
+                           <div>
                            		<label for="name">Provide Plane Number</label>
                                <input type="text" class="form-control" id="flight_id" placeholder="Plane Id" name="flight_id">                               
                            </div>
                        
-                           <div class="form-floating">
+                           <div>
                                <label for="number">Number of Seats</label>                           
                                <input type="number" class="form-control" id="no_of_seats" placeholder="Total Number Of Seats" name="no_of_seats">
                            </div>
-                           <div class="form-floating">
+                           <div>
                            		<label for="select3">Select Ticket Type</label>
                                <select class="form-select" id="select3" name="Ticket_type">
                                  <option value="Business Class">Business Class</option>
@@ -209,14 +209,14 @@
                                  <option value="Economic Class">Economic Class</option>
                                </select>                               
                            </div>
-                           <div class="form-floating date">
+                           <div>
                                <label for="checkin">Date Of Flight</label>                           
                                <input type="date" class="form-control" placeholder="Date Of Flight" id="date_of_flight" name="date_of_flight">
                                
                            </div>
                        
-                       <div class="col-12">
-                           <div class="form-floating">
+                       <div>
+                           <div>
                                <button class="btn btn-primary w-100 py-3" onclick="return booking_validate();" type="submit">Book Now</button>
                            </div>
                        </div>
