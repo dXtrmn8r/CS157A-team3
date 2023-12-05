@@ -132,7 +132,7 @@ body {
 
 
 <div class="container">
-  <img src="images/airplane1.jpg?tr=w-1200,h-400" alt="airplane"  style=width:100%;>
+  <img src="images/airplane1.jpg?tr=w-1200,h-400" alt="airplane"  style=""width:100%;height:100%; object-fit:cover;">
 	<div class="centered">
 		<h1>Lumipad</h1>
   		<p>Airline Booking System</p>
@@ -140,7 +140,7 @@ body {
 </div>
 
 <div class="navbar">
-  <a href="lumipad.jsp">Home</a>
+  <a href="ArrivalsBoard.jsp">Home</a>
   <a href="booking.jsp">Booking</a>
   <a href="Cancellation.jsp">Cancel Ticket</a>
   <a href="#">View Ticket History</a>
