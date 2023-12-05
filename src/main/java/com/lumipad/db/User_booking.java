@@ -9,10 +9,12 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+@WebServlet("/User_booking")
 
 public class User_booking extends HttpServlet {
 
@@ -50,8 +52,8 @@ public class User_booking extends HttpServlet {
         HttpSession session=request.getSession(false);  
         String PNR=(String)session.getAttribute("PNR");
         System.out.println(PNR);
-        String ticket_type=(String)session.getAttribute("ticket_type");
-        System.out.println(ticket_type);
+        String Ticket_type=(String)session.getAttribute("Ticket_type");
+        System.out.println(Ticket_type);
         try    
         {    
             Class.forName(driver).newInstance();
@@ -71,20 +73,17 @@ public class User_booking extends HttpServlet {
                 
                     
                
-                System.out.println(fair1);
+                System.out.println(fair1);                
+                          
                 
                 
-            String n_coupon = "Not Inserted!";
-            
-                
-                
-                String update = "UPDATE payment_details SET address = ?, payment_gateway = ?, payment_id = ?, coupon = ?, discount = ?, actual_fair= ? WHERE PNR= ?";
+                String update = "UPDATE payment_details SET address = ?, payment_gateway = ?, payment_id = ?, fair = ? WHERE PNR= ?";
                     PreparedStatement pst=con.prepareStatement(update);
                     pst.setString(1,address);
                     pst.setString(2,payment_type);
                     pst.setString(3,upino);
-                    pst.setInt(6,fair1);
-                    pst.setString(7, PNR);                        
+                    pst.setInt(4,fair1);
+                    pst.setString(5, PNR);                        
                     int y=pst.executeUpdate();
                     if(y==1)
                     {
