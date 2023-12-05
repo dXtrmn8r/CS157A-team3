@@ -11,8 +11,7 @@
 </head>
 <body>
 	<div class="main">
-	
-	    <h1>Your Upcoming Flights</h1>
+			 <h1>Your Upcoming Flights</h1>
 	    <table>
 	        <tr>
 	            <th>PNR</th>
@@ -23,6 +22,7 @@
 	            <th>Departure Time</th>
 	            <th>Gate</th>
 	        </tr>
+	    
 	        <%
 	        ResultSet rs = (ResultSet) request.getAttribute("upcoming_results");
 	        if (rs != null) {
@@ -34,8 +34,8 @@
 	            <td><%=rs.getString(5)%></td> <!-- No_of_seats -->
 	            <td><%=rs.getString(6)%></td> <!-- Date -->
 	            <td><%=rs.getString(7)%></td> <!--Ticket Type-->
-	            <td><%=rs.getString(8)%></td>
-	            <td><%=rs.getString(9)%></td>
+	            <td><%=rs.getString(8)!= null ? rs.getString(8) : "N/A"%></td>
+	            <td><%=rs.getString(9)!= null ? rs.getString(8) : "N/A"%></td>
 	        </tr>
 	        <%
 	            }

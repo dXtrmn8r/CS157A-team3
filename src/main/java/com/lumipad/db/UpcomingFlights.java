@@ -39,12 +39,12 @@ public class UpcomingFlights extends HttpServlet {
                 String userID = rs.getString("userID");
 
                 // Get ticket history
-                sqlQuery =  "SELECT tickets.*, `Departure airport`.`scheduled departure`, `Departure airport`.`Gate` " +
-                        "FROM tickets " +
-                        "JOIN `Departure airport` ON tickets.`Airline Code` = `Departure airport`.`Airline Code` " +
-                        "AND tickets.`Flight Number` = `Departure airport`.`Flight Number` " +
-                        "AND tickets.`date_of_flight` = `Departure airport`.`Date` " +
-                        "WHERE tickets.`date_of_flight` > CURDATE() AND tickets.userid = ?;";
+                sqlQuery =  "SELECT tickets.*, `Departure airport`.`scheduled departure`, `Departure airport`.`Gate` \r\n"
+                		+ "FROM `Departure airport`\r\n"
+                		+ "RIGHT JOIN tickets ON tickets.`Airline Code` = `Departure airport`.`Airline Code` \r\n"
+                		+ "AND tickets.`Flight Number` = `Departure airport`.`Flight Number` \r\n"
+                		+ "AND tickets.`date_of_flight` = `Departure airport`.`Date` \r\n"
+                		+ "WHERE tickets.`date_of_flight` >= CURDATE() AND tickets.userid = ?;";
                 stmt = con.prepareStatement(sqlQuery);
                 stmt.setString(1, userID);
                 ResultSet ticketResults = stmt.executeQuery();
