@@ -1,8 +1,7 @@
 <%@page import="java.sql.ResultSet"%>
-
 <% if(session.getAttribute("name")== null){ response.sendRedirect("login.jsp");
-
 } %>
+
 <!DOCTYPE html>
 <% String pagename="user_booking_failed.jsp"; session.setAttribute("pagename", pagename); %>
 
@@ -126,9 +125,9 @@
     <!-- Masthead-->
     <header class="masthead bg-primary text-white text-center">
       <div class="container d-flex align-items-center flex-column">
-      	<div class="container-xxl bg-white p-0">
 
         <!--
+        <div class="container-xxl bg-white p-0">
         
         <h5><span class="text-primary text-uppercase">Your Ticket ID Is ->  </span></h5>
         <h6 type="text" id="mainCaptcha"></h6>
@@ -136,8 +135,9 @@
         
         -->
 
-        <div>
-            <div>
+        <div class="container-xxl py-5">
+        	<div class="row">
+            <div class="main">
                 <h1>Flight Details</h1>
 				
 				<table class="center">
@@ -184,20 +184,20 @@
                 
                 <!-- Booking Start -->                
                 <!-- Booking Start -->				
-				<h1 class="mb-5">Book A <span class="text-primary text-uppercase">Plane Ticket</span></h1>      
+				<h1>Book A Plane Ticket</h1>      
                <form name="m_f" method="post" action="User_booking_validation">
-                   <div>
-                   		<div>
+                   <div class="row g-3">
+                   		<div >
                            		<label for="name">Your UserID</label>                          
                                <input type="text" class="form-control" id="userid" placeholder="Your User Name" name="userid">
                         </div>
                        
-                           <div>
+                           <div >
                            		<label for="name">Provide Plane Number</label>
                                <input type="text" class="form-control" id="flight_id" placeholder="Plane Id" name="flight_id">                               
                            </div>
                        
-                           <div>
+                           <div >
                                <label for="number">Number of Seats</label>                           
                                <input type="number" class="form-control" id="no_of_seats" placeholder="Total Number Of Seats" name="no_of_seats">
                            </div>
@@ -209,14 +209,14 @@
                                  <option value="Economic Class">Economic Class</option>
                                </select>                               
                            </div>
-                           <div>
+                           <div >
                                <label for="checkin">Date Of Flight</label>                           
                                <input type="date" class="form-control" placeholder="Date Of Flight" id="date_of_flight" name="date_of_flight">
                                
                            </div>
                        
-                       <div>
-                           <div>
+                       <div class="col-12">
+                           <div class="form-floating">
                                <button class="btn btn-primary w-100 py-3" onclick="return booking_validate();" type="submit">Book Now</button>
                            </div>
                        </div>
