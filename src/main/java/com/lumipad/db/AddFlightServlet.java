@@ -76,25 +76,27 @@ public class AddFlightServlet extends HttpServlet {
 			 */
 
 			PreparedStatement pstDeparture = con.prepareStatement(
-					"INSERT INTO `Departure Airport`(`Airline Code`, `Flight Number`, Destination, Date, `Scheduled Departure`, `Estimated Departure`, Gate) Values(?,?,?,?,?,?,?)");
-			pstDeparture.setString(1, airlineCode);
-			pstDeparture.setString(2, flightno);
-			pstDeparture.setString(3, origin);
-			pstDeparture.setString(4, date);
-			pstDeparture.setString(5, deptime);
+					"INSERT INTO `Departure Airport`(`Airport_code`,`Airline Code`, `Flight Number`, Destination, Date, `Scheduled Departure`, `Estimated Departure`, Gate) Values(?,?,?,?,?,?,?,?)");
+			pstDeparture.setString(1, origin);
+			pstDeparture.setString(2, airlineCode);
+			pstDeparture.setString(3, flightno);
+			pstDeparture.setString(4, destination);
+			pstDeparture.setString(5, date);
 			pstDeparture.setString(6, deptime);
-			pstDeparture.setString(7, depgate);
+			pstDeparture.setString(7, deptime);
+			pstDeparture.setString(8, depgate);
 
 			PreparedStatement pstArrival = con.prepareStatement(
-					"INSERT INTO `Arrival Airport`(`Airline Code`, `Flight Number`, Origin, Date, `Scheduled Arrival`, `Estimated Arrival`, Gate, `Baggage Claim`) Values(?,?,?,?,?,?,?,?)");
-			pstArrival.setString(1, airlineCode);
-			pstArrival.setString(2, flightno);
-			pstArrival.setString(3, origin);
-			pstArrival.setString(4, date);
-			pstArrival.setString(5, arrtime);
+					"INSERT INTO `Arrival Airport`(`Airport_code`,`Airline Code`, `Flight Number`, Origin, Date, `Scheduled Arrival`, `Estimated Arrival`, Gate, `Baggage Claim`) Values(?,?,?,?,?,?,?,?,?)");
+			pstArrival.setString(1, destination);
+			pstArrival.setString(2, airlineCode);
+			pstArrival.setString(3, flightno);
+			pstArrival.setString(4, origin);
+			pstArrival.setString(5, date);
 			pstArrival.setString(6, arrtime);
-			pstArrival.setString(7, arrgate);
-			pstArrival.setString(8, baggage);
+			pstArrival.setString(7, arrtime);
+			pstArrival.setString(8, arrgate);
+			pstArrival.setString(9, baggage);
 
 			PreparedStatement pstFlight = con.prepareStatement(
 					"INSERT INTO Flights(`Airline Code`, `Flight Number`, Date, Status, Departure, Arrival, Depart_time, Arrival_time, Duration, first_class_seat_booked, buss_class_seat_booked, eco_class_seat_booked, first_class_seat_aval, buss_class_seat_aval, eco_class_seat_aval, first_class_price, buss_class_price, eco_class_price) Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
