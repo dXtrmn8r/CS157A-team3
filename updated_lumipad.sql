@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `lumipad` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `lumipad` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `lumipad`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
@@ -276,7 +276,7 @@ CREATE TABLE `flights` (
 
 LOCK TABLES `flights` WRITE;
 /*!40000 ALTER TABLE `flights` DISABLE KEYS */;
-INSERT INTO `flights` VALUES ('AA',1,'738','2023-10-09','Arrived','JFK','LAX','00:18:00','02:18:00','2',6,4,7,3,6,4,2,10,50),('AA',3,'319','2023-10-09','Canceled','JFK','LAX','00:18:00','04:18:00','4',5,5,5,5,5,5,2,10,50),('B6',15,'321','2023-10-09','Boarding','JFK','SFO','00:18:00','06:18:00','6',5,6,5,5,5,5,2,10,50),('B6',416,'321','2023-10-09','Delayed','SFO','JFK','00:18:00','08:18:00','8',5,5,5,5,5,5,2,10,50),('DL',661,'321','2023-10-09','Canceled','ATL','BOS','00:18:00','10:18:00','10',5,5,5,5,5,5,2,10,50),('DL',947,'321','2023-10-09','Arrived','ATL','SAN','00:18:00','12:18:00','12',5,5,5,5,5,5,2,10,50),('UA',574,'39M','2023-10-09','Boarding','LAS','SFO','00:18:00','14:18:00','14',5,5,5,5,5,5,2,10,50),('UA',1435,'39M','2023-10-09','Boarding','SFO','IAH','00:18:00','16:18:00','16',5,5,5,5,5,5,2,10,50),('WN',673,'738','2023-10-09','Arrived','LAS','RNO','00:18:00','18:18:00','18',5,5,5,5,5,5,2,10,50),('WN',1231,'39M','2023-10-09','Canceled','HNL','OGG','00:18:00','20:18:00','20',5,5,5,5,5,5,2,10,50);
+INSERT INTO `flights` VALUES ('AA',1,'738','2023-10-09','Arrived','JFK','LAX','00:18:00','02:18:00','2',6,4,8,2,6,4,2,10,50),('AA',3,'319','2023-10-09','Canceled','JFK','LAX','00:18:00','04:18:00','4',5,5,5,5,5,5,2,10,50),('B6',15,'321','2023-10-09','Boarding','JFK','SFO','00:18:00','06:18:00','6',5,6,5,5,5,5,2,10,50),('B6',416,'321','2023-10-09','Delayed','SFO','JFK','00:18:00','08:18:00','8',5,5,5,5,5,5,2,10,50),('DL',661,'321','2023-10-09','Canceled','ATL','BOS','00:18:00','10:18:00','10',5,5,5,5,5,5,2,10,50),('DL',947,'321','2023-10-09','Arrived','ATL','SAN','00:18:00','12:18:00','12',5,5,5,5,5,5,2,10,50),('UA',574,'39M','2023-10-09','Boarding','LAS','SFO','00:18:00','14:18:00','14',5,5,5,5,5,5,2,10,50),('UA',1435,'39M','2023-10-09','Boarding','SFO','IAH','00:18:00','16:18:00','16',5,5,5,5,5,5,2,10,50),('WN',673,'738','2023-10-09','Arrived','LAS','RNO','00:18:00','18:18:00','18',5,5,5,5,5,5,2,10,50),('WN',1231,'39M','2023-10-09','Canceled','HNL','OGG','00:18:00','20:18:00','20',5,5,5,5,5,5,2,10,50);
 /*!40000 ALTER TABLE `flights` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -344,11 +344,12 @@ DROP TABLE IF EXISTS `payment_details`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `payment_details` (
-  `PNR` int NOT NULL,
+  `PNR` varchar(6) NOT NULL,
   `transaction_id` varchar(45) DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
   `payment_id` varchar(45) DEFAULT NULL,
   `fair` int DEFAULT NULL,
+  `payment_gateway` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`PNR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -359,7 +360,7 @@ CREATE TABLE `payment_details` (
 
 LOCK TABLES `payment_details` WRITE;
 /*!40000 ALTER TABLE `payment_details` DISABLE KEYS */;
-INSERT INTO `payment_details` VALUES (21938,'XXrBuYY28500UbR','NULL',NULL,10),(53705,'XXcJyYY28663YjC','NULL',NULL,50),(71556,'XXaTaYY49634AtA','NULL',NULL,2);
+INSERT INTO `payment_details` VALUES ('053705','XXcJyYY28663YjC','NULL','213',50,'Debit Card PAY'),('059339','XXaNpYY18147PnA',NULL,'452',10,'Debit Card PAY'),('064579','XXaNpYY18147PnA',NULL,'432',4,'Debit Card PAY'),('071556','XXaTaYY49634AtA','NULL','421',2,'Debit Card PAY'),('086339','XXaNpYY18147PnA','NULL','452',20,'Debit Card PAY'),('19EVIU','XXaNpYY18147PnA',NULL,'135',2,'Debit Card PAY'),('8T6QTK','XXaNpYY18147PnA',NULL,'424',8,'Debit Card PAY'),('DU5I7K','XXaNpYY18147PnA',NULL,'452',5,'Debit Card PAY'),('HOOS6V','XXaNpYY18147PnA',NULL,'753',6,'Debit Card PAY');
 /*!40000 ALTER TABLE `payment_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -417,7 +418,7 @@ CREATE TABLE `tickets` (
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
-INSERT INTO `tickets` VALUES ('013268','2','AA','1','1','2023-12-04','Business Class'),('021938','2','AA','1','1','2023-12-04','Business Class'),('053705','2','AA','1','1','2023-12-04','Economic Class'),('059339','2','AA','1','1','2023-12-04','Business Class'),('064579','2','AA','1','1','2023-12-04','Economic Class'),('071556','2','AA','1','1','2023-12-04','First Class'),('19EVIU','2','AA','1','2','2023-10-09','Bussiness'),('8T6QTK','2','AA','3','4','2023-10-09','First Class'),('DU5I7K','3','B6','15','1','2023-10-09','Bussiness'),('F43OFC','4','B6','416','6','2023-10-09','Economic'),('HOOS6V','5','DL','661','3','2023-10-09','Economic'),('IM8A41','6','DL','947','5','2023-10-09','Bussiness'),('IMFHZF','7','UA','574','6','2023-10-09','First Class'),('IVKTRP','8','UA','1435','1','2023-10-09','Bussiness'),('MI6WI9','9','WN','673','1','2023-10-09','Economic'),('MW7R68','10','WN','1231','1','2023-10-09','Bussiness');
+INSERT INTO `tickets` VALUES ('013268','2','AA','1','1','2023-12-04','Business Class'),('053705','2','AA','1','1','2023-12-04','Economic Class'),('059339','2','AA','1','1','2023-12-04','Business Class'),('064579','2','AA','1','1','2023-12-04','Economic Class'),('071556','2','AA','1','1','2023-12-04','First Class'),('086339','2','AA','1','2','2023-12-04','Business Class'),('19EVIU','2','AA','1','2','2023-10-09','Bussiness'),('8T6QTK','2','AA','3','4','2023-10-09','First Class'),('DU5I7K','3','B6','15','1','2023-10-09','Bussiness'),('F43OFC','4','B6','416','6','2023-10-09','Economic'),('HOOS6V','5','DL','661','3','2023-10-09','Economic'),('IM8A41','6','DL','947','5','2023-10-09','Bussiness'),('IMFHZF','7','UA','574','6','2023-10-09','First Class'),('IVKTRP','8','UA','1435','1','2023-10-09','Bussiness'),('MI6WI9','9','WN','673','1','2023-10-09','Economic'),('MW7R68','10','WN','1231','1','2023-10-09','Bussiness');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,6 +455,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-04 20:24:02
-
-
+-- Dump completed on 2023-12-05 16:03:43
