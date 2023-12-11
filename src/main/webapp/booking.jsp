@@ -128,6 +128,9 @@ if (session.getAttribute("name") == null) {
 							%>
 							<tr>
 								<td><%=rs.getString(1)%></td>
+								<%
+								session.setAttribute("flightNumber", rs.getString(1)); // Flight Number
+								%>
 								<td><%=rs.getString(2)%></td>
 								<td><%=rs.getString(3)%></td>
 								<td><%=rs.getString(4)%></td>
@@ -156,15 +159,16 @@ if (session.getAttribute("name") == null) {
 						<form name="m_f" method="post" action="User_booking_validation">
 							<div class="row g-3">
 								<div>
-									<label for="name">Your UserID</label> <input type="text"
-										class="form-control" id="userid" placeholder="Your User Name"
-										name="userid">
+									<label for="name">Your UserID</label> <input type="hidden"
+										id="userid" name="userid"
+										value="<%=session.getAttribute("userid")%>">
 								</div>
 
 								<div>
 									<label for="name">Provide Plane Number</label> <input
 										type="text" class="form-control" id="flight_id"
-										placeholder="Plane Id" name="flight_id">
+										placeholder="Plane Id" name="flight_id"
+										value="<%=session.getAttribute("flightNumber")%>">
 								</div>
 
 								<div>
@@ -228,7 +232,7 @@ if (session.getAttribute("name") == null) {
 
 		<!-- Template Javascript -->
 		<script src="js/main.js"></script>
-		
+
 	</header>
 
 	<!-- Copyright Section-->

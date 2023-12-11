@@ -83,7 +83,7 @@ if (session.getAttribute("name") == null) {
 					</tr>
 					<%
 					ResultSet rs = (ResultSet) request.getAttribute("ticket_results");
-					if (rs != null) {
+					if (rs != null && rs.isBeforeFirst()) {
 						while (rs.next()) {
 					%>
 					<tr>
@@ -103,7 +103,7 @@ if (session.getAttribute("name") == null) {
 					} else {
 					%>
 					<tr>
-						<td colspan="6">No ticket history found</td>
+						<td colspan="6"><h2>No ticket history found</h2></td>
 					</tr>
 					<%
 					}

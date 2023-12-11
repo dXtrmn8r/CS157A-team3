@@ -99,25 +99,25 @@
     <!-- Masthead-->
     <header class="masthead bg-primary text-white text-center">
       <div class="container d-flex align-items-center flex-column">
-      		<div class="container-xxl bg-white p-0">       
-        <div class="container-xxl py-5">
-            <div class="main">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center text-primary text-uppercase">Tickets Cancellation</h6>
-                    <h1 class="mb-5">Cancel A <span class="text-primary text-uppercase">Plane Ticket</span></h1>
+      		<div>       
+        <div>
+            <div >
+                <div>
+                    <h6>Tickets Cancellation</h6>
+                    <h1>Cancel A Plane Ticket</h1>
                 </div>
-                <div class="row justify-content-center">
-	                <div class="col-lg-10 p-1">
-		                <div class="text-center p-1">
+                <div >
+	                <div>
+		                <div>
 		                    <h3>Sorry, but the PNR NUMBER <%  String PNR=(String)session.getAttribute("PNR"); out.print(PNR);%> is incorrect</h3>
 		                    <h3>Or the record has been deleted already</h3>
 		                </div>
 		            </div>
 	            </div>
                 
-                <div class="row g-5">                    
-                    <div class="col-lg-6">
-                        <div class="wow fadeInUp" data-wow-delay="0.2s">
+                <div>                    
+                    <div>
+                        <div>
                             
                             <form  method="post" action="Cancellation">
                                 <div class="row g-3">

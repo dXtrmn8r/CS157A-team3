@@ -99,9 +99,9 @@
     <!-- Masthead-->
     <header class="masthead bg-primary text-white text-center">
       <div class="container d-flex align-items-center flex-column">
-      		<div class="container-xxl bg-white p-0">
+      		<div >
        
-        <div class="container-xxl py-5">
+        <div>
             <div class="main">
            
                     <h6 class="section-title text-center text-primary text-uppercase">Tickets Cancellation</h6>

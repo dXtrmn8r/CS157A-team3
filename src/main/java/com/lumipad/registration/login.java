@@ -42,6 +42,7 @@ public class login extends HttpServlet {
 			if(rs.next()) {//check if the query has a result, if there is
 				session.setAttribute("name", rs.getString("name"));//updates status at top of index.jsp with passenger name
 				session.setAttribute("email", uemail);
+				session.setAttribute("userid", rs.getString("userid"));
 				dispatcher = request.getRequestDispatcher("ArrivalsBoard.jsp"); //page redirect
 			}else {//user isn't in db, or wrong password, etc.
 				request.setAttribute("status", "failed");

@@ -188,13 +188,13 @@ if (session.getAttribute("name") == null) {
 				</table>
 			</div>
 
-			<h2>Booking</h2>
+<!-- 			<h2>Booking</h2>
 			Book by Flight Number
 			<form action="ViewFlightDetails" method="get">
 				<input type="text" name="viewFlight" onkeyup='"ViewFlightDetails"'
 					placeholder="Book a flight..."> <input type="submit"
 					value="Book">
-			</form>
+			</form> -->
 
 		</div>
 	</header>

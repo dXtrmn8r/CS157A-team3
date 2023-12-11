@@ -86,7 +86,7 @@ if (session.getAttribute("name") == null) {
 
 					<%
 					ResultSet rs = (ResultSet) request.getAttribute("upcoming_results");
-					if (rs != null) {
+					if (rs != null && rs.isBeforeFirst()) {
 						while (rs.next()) {
 					%>
 					<tr>
@@ -108,7 +108,7 @@ if (session.getAttribute("name") == null) {
 					} else {
 					%>
 					<tr>
-						<td colspan="6">No upcoming flights found</td>
+						<td colspan="6"><h2>No upcoming flights found</h2></td>
 					</tr>
 					<%
 					}

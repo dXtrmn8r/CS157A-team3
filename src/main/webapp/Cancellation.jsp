@@ -30,6 +30,15 @@ session.setAttribute("pagename", pagename);
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/index-styles.css" rel="stylesheet" />
+<script>
+	function cancel_validate() {
+		if (document.getElementById("PNR").value === "") {
+			alert("Please Enter PNR!");
+			return false;
+		}
+		return true;
+	}
+</script>
 </head>
 <body id="page-top">
 	<!-- Navigation-->
@@ -74,55 +83,51 @@ session.setAttribute("pagename", pagename);
 	<header class="masthead bg-primary text-white text-center">
 		<div class="container d-flex align-items-center flex-column">
 			<!-- <div class="container-xxl bg-white p-0"> -->
-				<div>
-					<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-						<h6 class="section-title text-center text-primary text-uppercase">Tickets
-							Cancellation</h6>
-						<h1 class="mb-5">
-							Cancel A Plane
-								Ticket
-						</h1>
-					</div>
+			<div>
+				<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+					<h6 class="section-title text-center text-primary text-uppercase">Tickets
+						Cancellation</h6>
+					<h1 class="mb-5">Cancel A Plane Ticket</h1>
+				</div>
 
+				<div>
 					<div>
 						<div>
-							<div>
 
-								<form method="post" action="Cancellation">
+							<form method="post" action="Cancellation">
+								<div>
 									<div>
 										<div>
-											<div>
-												<input type="text" class="form-control" id="PNR"
-													placeholder="Provide Your PNR Number" name="PNR"> <label
-													for="PNR">Provide Your PNR Number</label>
-											</div>
+											<input type="text" class="form-control" id="PNR"
+												placeholder="Provide Your PNR Number" name="PNR"> <label
+												for="PNR">Provide Your PNR Number</label>
 										</div>
-										<div>
-											<div>
-												<button class="btn btn-primary w-100 py-3" type="submit">Cancel
-													Now</button>
-											</div>
-										</div>
-
 									</div>
-								</form>
-							</div>
+									<div>
+										<div>
+											<button class="btn btn-primary w-100 py-3"
+												onclick="return cancel_validate();" type="submit">Cancel
+												Now</button>
+										</div>
+									</div>
+
+								</div>
+							</form>
 						</div>
 					</div>
-
 				</div>
-			</div>
 
-			<!-- Back to Top -->
-			<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
-				class="bi bi-arrow-up"></i></a>
+			</div>
+		</div>
+
+		<!-- Back to Top -->
 		<!-- </div> -->
 
 		<!-- </div> -->
 	</header>
 
 	<!-- Copyright Section-->
-	<div class="copyright py-4 text-center text-white" >
+	<div class="copyright py-4 text-center text-white">
 		<div class="container">
 			<small>Lumipad</small>
 		</div>
