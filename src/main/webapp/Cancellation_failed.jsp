@@ -120,15 +120,15 @@
                         <div>
                             
                             <form  method="post" action="Cancellation">
-                                <div class="row g-3">
-                                    <div class="col-md-8">
-                                        <div class="form-floating">
+                                <div>
+                                    <div>
+                                        <div>
                                             <input type="text" class="form-control" id="PNR" placeholder="Provide Your PNR Number" name="PNR">
                                             <label for="PNR">Provide Your PNR Number</label>
                                         </div>
                                     </div>
-                                    <div class="col-4">
-                                        <div class="form-floating">
+                                    <div>
+                                        <div>
                                             <button class="btn btn-primary w-100 py-3" type="submit">Cancel Now</button>
                                         </div>
                                     </div>

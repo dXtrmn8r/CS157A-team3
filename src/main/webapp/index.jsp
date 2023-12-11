@@ -28,6 +28,14 @@ if (session.getAttribute("name") == null) {
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/index-styles.css" rel="stylesheet" />
+<script>
+	function removeSpaces() {
+		var searchField = document.getElementsByName("search")[0];
+		searchField.value = searchField.value.replace(/\s/g, '');
+		return true;
+	}
+</script>
+
 </head>
 <body id="page-top">
 	<!-- Navigation-->
@@ -70,24 +78,18 @@ if (session.getAttribute("name") == null) {
 	<header class="masthead bg-primary text-white text-center">
 		<div class="container d-flex align-items-center flex-column">
 			<h1>Flight Board</h1>
-			<form action="SearchArrival" method="get">
+			<form action="SearchArrival" method="get" onsubmit="return removeSpaces();">
 				<!-- Search by Flight number -->
-				Search by: <br>
-				Flight Number:
-				<input type="text" name="search"
-					placeholder="Search for departures..">
-				
-				<br>
+				Search by: <br> Airline: <input type="text" name="search"
+					placeholder="Search for departures.."> <br>
 				<!-- Search by Airline and Arrival and Departure Airport -->
-				Airline, Arrival, and Departure:
-				<input type="text" name="airline" placeholder="Airline"> <input
-					type="text" name="arrivalAirport" placeholder="Arrival Airport">
-				<input type="text" name="departureAirport"
-					placeholder="Departure Airport">
+				Airline, Arrival, and Departure: <input type="text" name="airline"
+					placeholder="Airline"> <input type="text"
+					name="arrivalAirport" placeholder="Arrival Airport"> <input
+					type="text" name="departureAirport" placeholder="Departure Airport">
 
 				<!-- Sort options -->
-				<br>
-				<select name="sortOption">
+				<br> <select name="sortOption">
 					<option value="`Departure Airport`.`Scheduled Departure`">Sort
 						by...</option>
 					<option value="`Arrival Airport`.`Scheduled Arrival`">Arrival
@@ -188,7 +190,7 @@ if (session.getAttribute("name") == null) {
 				</table>
 			</div>
 
-<!-- 			<h2>Booking</h2>
+			<!-- 			<h2>Booking</h2>
 			Book by Flight Number
 			<form action="ViewFlightDetails" method="get">
 				<input type="text" name="viewFlight" onkeyup='"ViewFlightDetails"'
