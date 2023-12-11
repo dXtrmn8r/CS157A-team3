@@ -101,7 +101,7 @@ if (session.getAttribute("name") == null) {
 						<td><%=rs.getString(7)%></td>
 						<!--Ticket Type-->
 						<td><%=rs.getString(8) != null ? rs.getString(8) : "N/A"%></td>
-						<td><%=rs.getString(9) != null ? rs.getString(8) : "N/A"%></td>
+						<td><%=rs.getString(9) != null ? rs.getString(9) : "N/A"%></td>
 					</tr>
 					<%
 					}

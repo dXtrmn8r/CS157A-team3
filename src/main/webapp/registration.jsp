@@ -42,11 +42,7 @@
 							<label for="pass"><i class="zmdi zmdi-lock"></i></label> <input
 								type="password" name="pass" id="pass" placeholder="Password" />
 						</div>
-						<div class="form-group">
-							<label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-							<input type="password" name="re_pass" id="re_pass"
-								placeholder="Repeat your password" />
-						</div>
+
 						<div class="form-group">
 							<label for="contact"><i class="zmdi zmdi-lock-outline"></i></label>
 							<input type="text" name="contact" id="contact"

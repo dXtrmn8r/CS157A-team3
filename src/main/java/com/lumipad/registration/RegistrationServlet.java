@@ -30,7 +30,6 @@ public class RegistrationServlet extends HttpServlet {
 		String uname = request.getParameter("name");
 		String uemail = request.getParameter("email");
 		String upass = request.getParameter("pass");
-		String ure_pass = request.getParameter("re_pass");
 		String umobile = request.getParameter("contact");
 		
 		String ubirth = request.getParameter("birthday");
@@ -56,7 +55,7 @@ public class RegistrationServlet extends HttpServlet {
 			//Insert entry into db
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lumipad",dbUser, dbPassword);
-			PreparedStatement pst = con.prepareStatement("insert into passengers(Name, `Date of Birth`, Address, Phone, Billing_Info, Email, Password) values(?,?,?,?,?,?,?)");
+			PreparedStatement pst = con.prepareStatement("insert into passengers(Name, `Date_of_Birth`, Address, Phone, Billing_Info, Email, Password) values(?,?,?,?,?,?,?)");
 			pst.setString(1, uname);
 			pst.setString(2, ubirth);
 			pst.setString(3, uaddress);

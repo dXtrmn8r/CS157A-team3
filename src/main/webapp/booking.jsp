@@ -27,6 +27,34 @@ if (session.getAttribute("name") == null) {
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/index-styles.css" rel="stylesheet" />
+<script>
+	function booking_validate() {
+		if (document.getElementById("userid").value === "") {
+			alert("Please Enter userid!");
+			return false;
+		} else if (document.getElementById("flight_id").value === "") {
+			alert("Please Enter Flight Id!");
+			return false;
+		} else if (document.getElementById("no_of_seats").value === "") {
+			alert("Please Enter Total Number Of Seats");
+			return false;
+		}
+
+		else if (document.getElementById("date_of_flight").value === "") {
+			alert("Please Enter Date Of Flight!");
+			return false;
+		} else if (!isPositiveNumber(document.getElementById("no_of_seats").value)) {
+			alert("Please Enter A Valid Number of Seats!");
+			return false;
+		}
+	}
+</script>
+<script>
+	function isPositiveNumber(str) {
+		var n = parseFloat(str);
+		return (!isNaN(n) && n > 0);
+	}
+</script>
 </head>
 <body id="page-top">
 	<!-- Navigation-->
@@ -72,120 +100,117 @@ if (session.getAttribute("name") == null) {
 		<div class="container d-flex align-items-center flex-column">
 			<!-- <div class="container-xxl bg-white p-0">
 				<div class="container-xxl bg-white p-0"> -->
-					<!-- Booking Start -->
-					<div class="container-xxl py-5">
-						<div class="row">
-							<div class="main">
-								<h1>Flight Details</h1>
+			<!-- Booking Start -->
+			<div class="container-xxl py-5">
+				<div class="row">
+					<div class="main">
+						<h1>Flight Details</h1>
 
-								<table class="center">
-									<tr>
-										<th>Flight Number</th>
-										<th>Date</th>
-										<th>Departure</th>
-										<th>Arrival</th>
-										<th>Arrival_time</th>
-										<th>Depart_time</th>
-										<th>First Class Available</th>
-										<th>Business Class Available</th>
-										<th>Economic Class Available</th>
-										<th>First Class Price</th>
-										<th>Business Class Price</th>
-										<th>Economic Class Price</th>
-									</tr>
-									<%
-									ResultSet rs = (ResultSet) request.getAttribute("flight_results");
-									if (rs != null) {
-										while (rs.next()) {
-									%>
-									<tr>
-										<td><%=rs.getString(1)%></td>
-										<td><%=rs.getString(2)%></td>
-										<td><%=rs.getString(3)%></td>
-										<td><%=rs.getString(4)%></td>
-										<td><%=rs.getTime(5)%></td>
-										<td><%=rs.getTime(6)%></td>
-										<td><%=rs.getInt(7)%></td>
-										<td><%=rs.getInt(8)%></td>
-										<td><%=rs.getInt(9)%></td>
-										<td><%=rs.getInt(10)%></td>
-										<td><%=rs.getInt(11)%></td>
-										<td><%=rs.getInt(12)%></td>
-									</tr>
-									<%
-									}
-									} else {
-									%>
-									<tr>
-										<td colspan='12'>No results found</td>
-									</tr>
-									<%
-									}
-									%>
-								</table>
+						<table class="center">
+							<tr>
+								<th>Flight Number</th>
+								<th>Date</th>
+								<th>Departure</th>
+								<th>Arrival</th>
+								<th>Arrival_time</th>
+								<th>Depart_time</th>
+								<th>First Class Available</th>
+								<th>Business Class Available</th>
+								<th>Economic Class Available</th>
+								<th>First Class Price</th>
+								<th>Business Class Price</th>
+								<th>Economic Class Price</th>
+							</tr>
+							<%
+							ResultSet rs = (ResultSet) request.getAttribute("flight_results");
+							if (rs != null) {
+								while (rs.next()) {
+							%>
+							<tr>
+								<td><%=rs.getString(1)%></td>
+								<td><%=rs.getString(2)%></td>
+								<td><%=rs.getString(3)%></td>
+								<td><%=rs.getString(4)%></td>
+								<td><%=rs.getTime(5)%></td>
+								<td><%=rs.getTime(6)%></td>
+								<td><%=rs.getInt(7)%></td>
+								<td><%=rs.getInt(8)%></td>
+								<td><%=rs.getInt(9)%></td>
+								<td><%=rs.getInt(10)%></td>
+								<td><%=rs.getInt(11)%></td>
+								<td><%=rs.getInt(12)%></td>
+							</tr>
+							<%
+							}
+							} else {
+							%>
+							<tr>
+								<td colspan='12'>No results found</td>
+							</tr>
+							<%
+							}
+							%>
+						</table>
 
-								<h1>
-									Book A Plane Ticket
-								</h1>
-								<form name="m_f" method="post" action="User_booking_validation">
-									<div class="row g-3">
-										<div>
-											<label for="name">Your UserID</label> <input type="text"
-												class="form-control" id="userid"
-												placeholder="Your User Name" name="userid">
-										</div>
+						<h1>Book A Plane Ticket</h1>
+						<form name="m_f" method="post" action="User_booking_validation">
+							<div class="row g-3">
+								<div>
+									<label for="name">Your UserID</label> <input type="text"
+										class="form-control" id="userid" placeholder="Your User Name"
+										name="userid">
+								</div>
 
-										<div>
-											<label for="name">Provide Plane Number</label> <input
-												type="text" class="form-control" id="flight_id"
-												placeholder="Plane Id" name="flight_id">
-										</div>
+								<div>
+									<label for="name">Provide Plane Number</label> <input
+										type="text" class="form-control" id="flight_id"
+										placeholder="Plane Id" name="flight_id">
+								</div>
 
-										<div>
-											<label for="number">Number of Seats</label> <input
-												type="number" class="form-control" id="no_of_seats"
-												placeholder="Total Number Of Seats" name="no_of_seats">
-										</div>
-										<div>
-											<label for="select3">Select Ticket Type</label> <select
-												class="form-select" id="select3" name="Ticket_type">
-												<option value="Business Class">Business Class</option>
-												<option value="First Class">First Class</option>
-												<option value="Economic Class">Economic Class</option>
-											</select>
-										</div>
-										<div class="date">
-											<label for="checkin">Date Of Flight</label> <input
-												type="date" class="form-control"
-												placeholder="Date Of Flight" id="date_of_flight"
-												name="date_of_flight">
+								<div>
+									<label for="number">Number of Seats</label> <input
+										type="number" class="form-control" id="no_of_seats"
+										placeholder="Total Number Of Seats" name="no_of_seats">
+								</div>
+								<div>
+									<label for="select3">Select Ticket Type</label> <select
+										class="form-select" id="select3" name="Ticket_type">
+										<option value="Business Class">Business Class</option>
+										<option value="First Class">First Class</option>
+										<option value="Economic Class">Economic Class</option>
+									</select>
+								</div>
+								<div class="date">
+									<label for="checkin">Date Of Flight</label> <input type="date"
+										class="form-control" placeholder="Date Of Flight"
+										id="date_of_flight" name="date_of_flight">
 
-										</div>
+								</div>
 
-										<div class="col-12">
-											<div class="form-floating">
-												<button class="btn btn-primary w-100 py-3"
-													onclick="return booking_validate();" type="submit">Book
-													Now</button>
-											</div>
-										</div>
+								<div class="col-12">
+									<div class="form-floating">
+										<button class="btn btn-primary w-100 py-3"
+											onclick="return booking_validate();" type="submit">Book
+											Now</button>
 									</div>
-								</form>
-
-
+								</div>
 							</div>
-						</div>
+						</form>
+
+
 					</div>
 				</div>
-			<!-- </div> -->
+			</div>
+		</div>
+		<!-- </div> -->
 
 
-			<!-- Booking End -->
+		<!-- Booking End -->
 
 
-			<!-- Back to Top -->
-			<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
-				class="bi bi-arrow-up"></i></a>
+		<!-- Back to Top -->
+		<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+			class="bi bi-arrow-up"></i></a>
 		<!-- </div> -->
 
 		<!-- JavaScript Libraries -->
@@ -203,7 +228,7 @@ if (session.getAttribute("name") == null) {
 
 		<!-- Template Javascript -->
 		<script src="js/main.js"></script>
-		</div>
+		
 	</header>
 
 	<!-- Copyright Section-->

@@ -126,7 +126,7 @@
     <!-- Masthead-->
     <header class="masthead bg-primary text-white text-center">
       <div class="container d-flex align-items-center flex-column">
-      	<div class="container-xxl bg-white p-0">
+      	<div>
 
         <!--
         
@@ -184,7 +184,7 @@
                 
                 <!-- Booking Start -->                
                 <!-- Booking Start -->				
-				<h1 class="mb-5">Book A <span class="text-primary text-uppercase">Plane Ticket</span></h1>      
+				<h1 class="mb-5">Book A Plane Ticket</h1>      
                <form name="m_f" method="post" action="User_booking_validation">
                    <div>
                    		<div>
